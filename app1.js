@@ -1,43 +1,31 @@
-// 2. Выведите в консоль значения, указанные рядом с комментариями:
+// 1.1 (это обязательное задание) Сделайте в стиле es5, а затем в стиле es6
+// (по аналогии из дополнительных видео -> 3 примеры наследования -> типы на es5 и es6),
+
+// конструктор Product, который принимает параметры name и price, сохраните их как
+// свойства объекта. Также объекты типа Product должны иметь метод make25PercentDiscount,
+// который будет уменьшать цену в объекте на 25%. Имейте в виду, что метод make25PercentDiscount
+// не должен быть внутри функции-конструктора, и также не нужно создавать отдельный объект-прототип
+// (как объект transport в уроке).
+
+// Решение задачи в стиле es6
 'use strict'
-const post = {
-    author: "John", //вывести этот текст
-    postId: 23,
-    comments: [
-        {
-            userId: 10,
-            userName: "Alex",
-            text: "lorem ipsum",
-            rating: {
-                likes: 10,
-                dislikes: 2 //вывести это число
-            }
-        },
-        {
-            userId: 5, //вывести это число
-            userName: "Jane",
-            text: "lorem ipsum 2", //вывести этот текст
-            rating: {
-                likes: 3,
-                dislikes: 1
-            }
-        },
-    ]
-};
+// создаем конструктор Product со свойствами name и price 
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
 
-// for (let property in post) {
-//     if (property == "author") {
-//         console.log(post[property]);
-//     }
-// }
+    // создаем конструктору Product метод который уменьшает свойство price на 25% 
+    make25PercentDiscount() {
+        this.price = this.price / 100 * 75;
+    }
+}
+
+// создаем объект tovar1 с пармаметрами name и price который наследует свойства конструктора Product
+let tovar1 = new Product("Ручка", "1000");
+//Вызываем метод  make25PercentDiscount который уменьшает значение свойства price на 25%
+tovar1.make25PercentDiscount()
+alert(`Теперь ручка дешевле на 25% и стоит ${tovar1.price}`);
 
 
-// Решение задачи 
-//Выводим значение "John" свойства author
-console.log(post.author);
-//Выводим значение 2 свойства dislikes массива comments
-console.log(post.comments[0].rating.dislikes);
-//Выводим значение 5 свойства userId массива comments
-console.log(post.comments[1].userId);
-//Выводим значение "lorem ipsum 2" свойства text массива comments
-console.log(post.comments[1].text);
