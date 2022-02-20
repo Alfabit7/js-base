@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+    <button type="button" class="btn btn-outline-success">Success</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+    <!-- <button type="button" class="btn btn-outline-warning">Warning1</button>
+    <button type="button" class="btn btn-outline-warning">Warning2</button>
+    <button type="button" class="btn btn-outline-warning">Warning3</button> -->
+    <button type="button" class="btn btn-outline-info">Info</button>
+    <button type="button" class="btn btn-outline-light">Light</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+
+    <!-- Задание. 
+    1. Найдите элемент с классом .btn-outline-warning и удалите его.
+    2. Аналогичным образом удалите элемент с классом .btn-outline-dark -->
+
+    <script>
+        'use strict'
+        // запрашиваем элементы с классом btn - outline - warning и присваиваем их перемнной requestClassButton
+        let requestClassButtonWarning = document.getElementsByClassName('btn-outline-warning');
+        // у элементов с классом btn-outline-warning удаляем класс btn-outline-warning.
+        // requestClassButton[0] потому что строка document.getElementsByClassName('btn-outline-warning') возвращет объект HTMLColection
+        console.log(requestClassButtonWarning[0]);
+
+        requestClassButtonWarning[0].classList.remove('btn-outline-warning');
+        // выводим в косноль
+        console.log(requestClassButtonWarning[0]);
+
+
+        let requestClassButtonDark = document.getElementsByClassName('btn-outline-dark');
+        console.log(requestClassButtonDark);
+        requestClassButtonDark[0].classList.remove('btn-outline-dark');
+        console.log(requestClassButtonDark);
+
+
+
+    </script>
+</body>
+
+</html>
