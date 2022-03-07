@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button>Показать сообщение</button>
+    <div class="message">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, aliquam enim voluptates quibusdam
+        perferendis sint ipsa, nulla quas doloribus nobis libero voluptatem unde inventore. Ut quas corporis fugit error
+        explicabo? Ipsa quos qui similique sequi officia quod ab reiciendis alias!
+    </div>
+
+    <!-- 
+    Задание. Вам нужно чтобы при клике на кнопку появлялось сообщение .message
+    снизу экрана, в общем как сообщения вконтакте.
+    1. Аудио воспроизводите как здесь https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
+    2. Чтобы получить высоту .message, используйте свойство clientHeight
+    3. Чтобы анимировать перемещение .message используйте стиль transform
+    как здесь https://webref.ru/css/value/translatey
+    -->
+
+    <script>
+        'use strict'
+        let requestButton = document.querySelector('button');
+        let requestDiv = document.querySelector('div')
+        requestButton.addEventListener('click', function () {
+            clickButton();
+        });
+
+        function clickButton() {
+            showMessage();
+            playAudio();
+        };
+
+
+        // функиця показывает сообщение 
+        function showMessage(event) {
+            // requestDiv.style.top = '70vh'  можно изменить значение top на 70vh 
+            // присваиваем messageHight значение выосты сообщения плюс 25 едениц чтобы был отступ снизу
+            let messageHight = +requestDiv.clientHeight + 25;
+            // сообщение будет появляться в правом углу, а не в левом как по умолчанию 
+            requestDiv.style.right = '5vh'
+            // обращаемся в ссылке на div и задаем стили  
+            requestDiv.style.transform = `translateY(-${messageHight}px)`;
+        }
+
+        // функция производит аудио 
+        function playAudio() {
+            let my_audio = new Audio();
+            my_audio.src = "./notification.mp3"
+            my_audio.play();
+        };
+    </script>
+</body>
+
+</html>
